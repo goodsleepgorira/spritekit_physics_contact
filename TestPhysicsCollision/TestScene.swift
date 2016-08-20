@@ -32,7 +32,7 @@ class TestScene:SKScene {
         birdBrown.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.height-100)
         birdRed.position = CGPointMake(CGRectGetMidX(self.frame)-35, self.frame.height-250)
         birdBlue.position = CGPointMake(CGRectGetMidX(self.frame)+35, self.frame.height-350)
-
+        
         //物理ボディを設定する。
         birdBrown.physicsBody = SKPhysicsBody(texture: birdBrown.texture!, size: birdBrown.size)
         birdRed.physicsBody = SKPhysicsBody(texture: birdRed.texture!, size: birdRed.size)
@@ -42,7 +42,7 @@ class TestScene:SKScene {
         birdBrown.physicsBody?.categoryBitMask = 0b0001
         birdRed.physicsBody?.categoryBitMask = 0b0010
         birdBlue.physicsBody?.categoryBitMask = 0b0100
-
+        
         //重力の影響を受けないようにする。
         birdBrown.physicsBody!.affectedByGravity = false
         birdRed.physicsBody!.affectedByGravity = false
@@ -54,6 +54,7 @@ class TestScene:SKScene {
         self.addChild(birdBrown)
         self.addChild(birdRed)
         self.addChild(birdBlue)
+        
     }
     
     
@@ -64,9 +65,9 @@ class TestScene:SKScene {
         //画面をタッチした座標に移動するアクションを作成する。
         let location = touches.first!.locationInNode(self)
         let action = SKAction.moveTo(CGPoint(x:location.x, y:location.y), duration:0.1)
-
+        
         //アクションを実行する。
         birdBrown.runAction(action)
     }
-
+    
 }
